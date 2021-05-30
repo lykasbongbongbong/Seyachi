@@ -4,23 +4,6 @@ import mysql.connector
 import boto3
 from botocore.exceptions import ClientError
 
-# import email.message
-# msg = email.message.EmailMessage()
-# from_a = "lykaslin1022@gmail.com"
-# to_b = "lykaslin1022@gmail.com"
-# msg["From"] = from_a
-# msg["To"]=to_b 
-# msg["Subject"]="hello"
-
-# msg.add_alternative("<h3>HTML內容</h3>testing",subtype="html")
-# acc = "lykaslin97@gapp.nthu.edu.tw"
-# password = "Hx02hxq4mq3@"
-
-# import smtplib
-# server=smtplib.SMTP_SSL("smtp.gmail.com", 465)
-# server.login(acc, password)
-# server_send_message(msg)
-# server.close()
 
 app = Flask(__name__)
 jinja_options = app.jinja_options.copy()
@@ -33,21 +16,7 @@ app.jinja_options = jinja_options
 app.config["DEBUG"] = True 
 
 
-
-# mydb = mysql.connector.connect(
-#     host = "localhost",
-#     user = "username",
-#     password = "1qaz2wsx",
-#     database = "seyachi"
-# )
-
-# db info
-mydb = mysql.connector.connect(
-    host = "seyachi.crgqco4jxsef.us-east-1.rds.amazonaws.com",
-    user = "username",
-    password = "1qaz2wsx",
-    database = "seyachi"
-)
+#db info
 mycursor = mydb.cursor()
 
 
