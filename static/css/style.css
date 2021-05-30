@@ -6,3 +6,25 @@
   background: url("/static/images/background_v6.png");
   background-size: cover;
 }
+
+#img_person.goToUpMiddle {
+  animation-duration: 2s;
+  animation-name: up_middle;
+  animation-fill-mode: forwards;
+}
+
+#img_person.goToDownMiddle { 
+  animation-duration: 2s;
+  animation-name: down_middle;
+  animation-fill-mode: forwards;
+}
+
+@keyframes up_middle {
+  50% {left: 400px}
+  100% {top: 480px; left: 400px}
+}
+
+@keyframes down_middle {
+  50% {left: 400px}
+  100% {top: 200px; left: 400px}
+}
