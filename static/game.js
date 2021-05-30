@@ -101,22 +101,50 @@ function MoveTopAndDown(left, top, move) {
   return 0
 }
 
-function enterStore(left) {
-  //there are three store
-  var index = 0;
-  if (left > 0 && left < 100)
-    index = 1;
-  else if (left > 150 && Left < 250)
-    index = 2;
 
-  if (index != 0)
-    window.alert(index);
+var state_dist_idx = 15;
+var dict_store_x_y = {};
+
+dict_store_x_y[11] = {'left': 135, 'top':480};
+dict_store_x_y[12] = {'left': 615, 'top':480};
+dict_store_x_y[13] = {'left': 865, 'top':480};
+
+dict_store_x_y[16] = {'left': 130, 'top':200};
+dict_store_x_y[15] = {'left': 370, 'top':200};
+dict_store_x_y[20] = {'left': 615, 'top':200};
+dict_store_x_y[17] = {'left': 865, 'top':200};
+
+img.onclick=function(){
+	if(dict_store_x_y[state_dist_idx]['top'] > 400 && img.top < 400){
+		img.classList.add("goToUpMiddle");
+	}
+	else if(dict_store_x_y[state_dist_idx]['top'] < 400 && img.top > 400) {
+		img.classList.add('goToDownMiddle');
+	}
+	else{
+		img.left = dict_store_x_y[state_dist_idx]['left'];
+		img.top = dict_store_x_y[state_dist_idx]['top'];
+		img.style.left = dict_store_x_y[state_dist_idx]['left'] + 'px';
+		img.style.top  = dict_store_x_y[state_dist_idx]['top'] + 'px';
+	}
 }
 
-var store_idx = document.getElementById("store");
-img.onclick = function () {
-  var x = Math.floor(Math.random() * 300);
-  var y = Math.floor(Math.random() * 300);
-  img.style.top = x + 'px';
-  img.style.left = y + 'px';
-}
+img.addEventListener("animationend",function(e){
+	if (e.animationName == 'up_middle'){
+		img.classList.remove("goToUpMiddle");
+		img.left = dict_store_x_y[state_dist_idx]['left'];
+		img.top = dict_store_x_y[state_dist_idx]['top'];
+		img.style.left = dict_store_x_y[state_dist_idx]['left'] + 'px';
+		img.style.top  = dict_store_x_y[state_dist_idx]['top'] + 'px';
+	}
+	
+	else if (e.animationName == 'down_middle'){
+		img.classList.remove("goToDownMiddle");
+		img.left = dict_store_x_y[state_dist_idx]['left'];
+		img.top = dict_store_x_y[state_dist_idx]['top'];
+		img.style.left = dict_store_x_y[state_dist_idx]['left'] + 'px';
+		img.style.top  = dict_store_x_y[state_dist_idx]['top'] + 'px';
+	}
+},false);
+
+
