@@ -1,0 +1,20 @@
+.bk {
+  position: absolute;
+  width: 810px;
+  height: 455px;
+  position: absolute;
+  background: url("./background_v2.png");
+  background-size: cover;
+}
+
+@-webkit-keyframes bk {
+  from { background-position: 0% 0 }
+  
+  to   { background-position: 200% 0  }
+}
+
+@keyframes bk {
+  from { background-position: 0% 0 }
+  
+  to   { background-position: 200% 0  }
+}

@@ -1,0 +1,8 @@
+.bk {
+  position: absolute;
+  width: 1080px;
+  height: 607px;
+  position: absolute;
+  background: url("/static/images/background_v6.png");
+  background-size: cover;
+}
